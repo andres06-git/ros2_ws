@@ -16,14 +16,14 @@ class PublisherCpp : public rclcpp::Node
 {
 
   private:
-    // PUntero al publicador de mensaje personalizado 
+    // Puntero al publicador de mensaje personalizado 
     rclcpp::Publisher<robx7_interfaces::msg::CustomString>::SharedPtr pub_;
     // Puntero al timer para la ejecucion periodica
     rclcpp::TimerBase::SharedPtr timer_;
     // Contador para llevar la secuencia de mensajes enviados
     int contador_ = 0;
   
-  // FUncion callback ejecutada periodicamente por el timer 
+  // Funcion callback ejecutada periodicamente por el timer 
   void publicar_mensaje()
   {
       // Mensaje del tipo CustomString
@@ -36,12 +36,12 @@ class PublisherCpp : public rclcpp::Node
       pub_->publish(message);
   }
   public:
-    // Constructor de la clase, nombra al nodo como "noticias_carlos2"
-    PublisherCpp() : Node("noticias_carlos2")
+    // Constructor de la clase, nombra al nodo como "noticias_cpp"
+    PublisherCpp() : Node("noticias_cpp")
     {
       // Creacion del publisher en el topico "TraficoZMG"
       pub_= create_publisher<robx7_interfaces::msg::CustomString>("TraficoZMG",10);
-      RCLCPP_INFO(get_logger(), "Noticias carlos ha iniciado.");
+      RCLCPP_INFO(get_logger(), "Noticias C++ ha iniciado.");
 
       // Inicializacion del timer para llamar a publicar_mensaje cada 1 segundo
       timer_ = create_wall_timer(

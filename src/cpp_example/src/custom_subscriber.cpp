@@ -10,8 +10,8 @@ class SubscriberCpp : public rclcpp::Node
     rclcpp::Subscription<robx7_interfaces::msg::CustomString>::SharedPtr sub_;
   
   public:
-    // Constructor de la clase, nombra al nodo como "Usuario_2026"
-    SubscriberCpp() : Node("Usuario_2026")
+    // Constructor de la clase, nombra al nodo como "usuario_cpp_2026"
+    SubscriberCpp() : Node("usuario_cpp_2026")
     {
       // Creacion de la suscripcion al topico "TraficoZMG" con cola QoS de 10
       // Utiliza una funcion como callback para procesar cada mensaje recibido

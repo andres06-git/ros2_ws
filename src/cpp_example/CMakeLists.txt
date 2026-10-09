@@ -42,6 +42,15 @@ ament_target_dependencies(custom_client_cpp rclcpp robx7_interfaces)
 add_executable(client2_cpp src/example_client.cpp)
 ament_target_dependencies(client2_cpp rclcpp example_interfaces)
 
+add_executable(emulador_hardware src/emulador_hardware.cpp)
+ament_target_dependencies(emulador_hardware rclcpp robx7_interfaces)
+
+add_executable(nodo_monitor src/nodo_monitor.cpp)
+ament_target_dependencies(nodo_monitor rclcpp robx7_interfaces)
+
+add_executable(nodo_operador src/nodo_operador.cpp)
+ament_target_dependencies(nodo_operador rclcpp robx7_interfaces)
+
 install(TARGETS
   test_node_cpp
   example_publisher_cpp
@@ -52,7 +61,15 @@ install(TARGETS
   client_cpp
   custom_client_cpp
   custom_server_cpp
+  emulador_hardware
+  nodo_monitor
+  nodo_operador
   DESTINATION lib/${PROJECT_NAME}
+)
+
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}
 )
 
 ament_package()

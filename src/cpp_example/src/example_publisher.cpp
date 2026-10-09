@@ -8,12 +8,12 @@ class PublisherCpp : public rclcpp::Node
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_;
   
   public:
-    PublisherCpp() : Node("noticias_carlos2")
+    PublisherCpp() : Node("noticias_cpp")
     {
       pub_= create_publisher<std_msgs::msg::String>("TraficoZMG",10);
-      RCLCPP_INFO(get_logger(), "Noticias carlos a iniciado.");
+      RCLCPP_INFO(get_logger(), "Noticias C++ ha iniciado.");
       auto message = std_msgs::msg::String();
-      message.data = "Noticias de trafico de carlos";
+      message.data = "Noticias de trafico de C++";
       pub_->publish(message);
     }
 
